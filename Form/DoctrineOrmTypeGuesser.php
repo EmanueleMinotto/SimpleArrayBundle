@@ -22,7 +22,7 @@ class DoctrineOrmTypeGuesser extends BaseDoctrineOrmTypeGuesser
             return new TypeGuess('text', [], Guess::LOW_CONFIDENCE);
         }
 
-        list($metadata, $name) = $ret;
+        $metadata = $ret[0];
 
         if ('simple_array' == $metadata->getTypeOfField($property)) {
             return new TypeGuess('simple_array', [], Guess::MEDIUM_CONFIDENCE);
