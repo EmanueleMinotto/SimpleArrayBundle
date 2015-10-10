@@ -12,8 +12,11 @@ before_script:
 
 install:
   - composer install --prefer-source
+  - composer require --dev satooshi/php-coveralls
 
 script:
-  - ./vendor/bin/phpunit --coverage-clover=coverage.clover
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+ - mkdir -p build/logs
+ - phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+ - php vendor/bin/coveralls -v
