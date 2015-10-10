@@ -13,7 +13,7 @@
     "description": "Symfony 2 bundle for simple tags management, based on doctrine 2 simple_array type.",
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "1.0-dev"
         }
     },
     "license": "MIT",
