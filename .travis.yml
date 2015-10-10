@@ -1,22 +1,20 @@
 language: php
 
-sudo: false
-
 php:
-  - 5.5
-  - 5.6
-  - 7.0
+- 5.4
+- 5.5
+- 5.6
+- 7.0
+- hhvm
 
 before_script:
-  - composer self-update
-
-install:
-  - composer install --prefer-source
-  - composer require --dev satooshi/php-coveralls
+- composer require satooshi/php-coveralls:~0.6 --dev
 
 script:
- - mkdir -p build/logs
- - phpunit --coverage-clover build/logs/clover.xml
+- vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
- - php vendor/bin/coveralls -v
+- php vendor/bin/coveralls -v
+
+notifications:
+  email: false
