@@ -1,0 +1,32 @@
+{
+    "authors": [
+        {
+            "email": "minottoemanuele@gmail.com",
+            "name": "Emanuele Minotto"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EmanueleMinotto\\SimpleArrayBundle\\": "."
+        }
+    },
+    "description": "Symfony 2 bundle for simple tags management, based on doctrine 2 simple_array type.",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    },
+    "license": "MIT",
+    "name": "emanueleminotto/simple-array-bundle",
+    "require": {
+        "symfony/dependency-injection": "^2.5",
+        "symfony/doctrine-bridge": "^2.5",
+        "symfony/form": "^2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0"
+    },
+    "suggest": {
+        "beberlei/DoctrineExtensions": "To use the MySQL FIND_IN_SET function"
+    }
+}

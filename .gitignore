@@ -1,0 +1,5 @@
+/build/
+/composer.phar
+/phpunit.xml
+/vendor/
+composer.lock
