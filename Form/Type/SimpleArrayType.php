@@ -17,7 +17,7 @@ class SimpleArrayType extends AbstractType
      * @param FormBuilderInterface $builder The form builder.
      * @param array                $options The options.
      *
-     * @see    FormTypeExtensionInterface::buildForm()
+     * @see   FormTypeExtensionInterface::buildForm()
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -35,7 +35,9 @@ class SimpleArrayType extends AbstractType
      */
     public function getParent()
     {
-        return 'text';
+        return method_exists(__CLASS__, 'getBlockPrefix')
+            ? 'Symfony\Component\Form\Extension\Core\Type\TextType'
+            : 'text';
     }
 
     /**

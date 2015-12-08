@@ -14,7 +14,7 @@ class DoctrineOrmTypeGuesser extends BaseDoctrineOrmTypeGuesser
      * @param string $class    The fully qualified class name.
      * @param string $property The name of the property to guess for.
      *
-     * @return Guess\TypeGuess|null A guess for the field's type and options.
+     * @return TypeGuess|null A guess for the field's type and options.
      */
     public function guessType($class, $property)
     {

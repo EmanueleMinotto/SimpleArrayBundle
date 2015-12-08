@@ -74,9 +74,13 @@ class SimpleArrayTransformer implements DataTransformerInterface
             $value = '';
         }
 
+        if (!is_array($value)) {
+            $value = explode(',', $value);
+        }
+
         // 1. Split the string with commas
         // 2. Remove whitespaces around the values
         // 3. Remove empty elements (like in "tag1,tag2, ,,tag3,tag4")
-        return array_filter(array_map('trim', explode(',', $value)));
+        return array_filter(array_map('trim', $value));
     }
 }
