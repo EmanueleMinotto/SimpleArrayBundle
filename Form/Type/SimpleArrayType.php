@@ -35,7 +35,7 @@ class SimpleArrayType extends AbstractType
      */
     public function getParent()
     {
-        return method_exists(__CLASS__, 'getBlockPrefix')
+        return method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
             ? 'Symfony\Component\Form\Extension\Core\Type\TextType'
             : 'text';
     }

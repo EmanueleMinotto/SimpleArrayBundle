@@ -19,13 +19,19 @@ class DoctrineOrmTypeGuesser extends BaseDoctrineOrmTypeGuesser
     public function guessType($class, $property)
     {
         if (!$ret = $this->getMetadata($class)) {
-            return new TypeGuess('text', [], Guess::LOW_CONFIDENCE);
+            $type = method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+                ? 'Symfony\Component\Form\Extension\Core\Type\TextType'
+                : 'text';
+            return new TypeGuess($type, [], Guess::LOW_CONFIDENCE);
         }
 
         $metadata = $ret[0];
 
         if ('simple_array' == $metadata->getTypeOfField($property)) {
-            return new TypeGuess('simple_array', [], Guess::MEDIUM_CONFIDENCE);
+            $type = method_exists('Symfony\Component\Form\AbstractType', 'getBlockPrefix')
+                ? 'EmanueleMinotto\SimpleArrayBundle\Form\Type\SimpleArrayType'
+                : 'simple_array';
+            return new TypeGuess($type, [], Guess::MEDIUM_CONFIDENCE);
         }
 
         return parent::guessType($class, $property);
